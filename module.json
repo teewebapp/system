@@ -1,5 +1,5 @@
 {
     "enabled": true,
     "order": 1,
-    "provider": ["App\\Modules\\System\\ServiceProvider"]
+    "provider": ["Tee\\System\\ServiceProvider"]
 }
