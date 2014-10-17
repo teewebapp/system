@@ -10,8 +10,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
     public function register()
     {
         // registra os macros e helpers
-        require_once app_path().'/modules/system/macros/html.php';
-        require_once app_path().'/modules/system/macros/form.php';
+        require_once __DIR__.'/modules/system/macros/html.php';
+        require_once __DIR__.'/modules/system/macros/form.php';
 
         // registra os widgets
         Widget::register(
