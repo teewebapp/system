@@ -24,7 +24,7 @@ class MainMenu {
             $pages = $category->pages;
         }
         Menu::make($this->menuName, function($menu) use($pages) {
-            $menu->add(trans('front::front.home'));
+            $menu->add(trans('front::front.home'), route('home'));
             foreach($pages as $page) {
                 $options = array();
                 if($page->type == Page::LINKED)
