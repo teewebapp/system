@@ -2,12 +2,15 @@
 
 namespace Tee\System\Controllers;
 
-use Controller, View, Theme, Config;
+
+use Controller, View, Config;
+use Tee\System\Theme;
 
 class BaseController extends Controller {
 
 	public function __construct() {
-		Theme::init(Config::get('site.theme'));
+        if(Config::get('site.theme'))
+		  Theme::init(Config::get('site.theme'));
         $app = app();
         $viewFinder = $app['view.finder'];
         foreach($app['modules']->modules() as $name => $module)

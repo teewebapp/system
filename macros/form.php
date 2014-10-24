@@ -1,5 +1,8 @@
 <?php
 
+use Tee\System\Asset;
+use Tee\System\Theme;
+
 /**
  * Make a label with model attribute name
  */
@@ -25,7 +28,7 @@ Form::macro('resource', function($model, $routePrefix, $options=array()) {
  * Creates a Html Editor
  */
 Form::macro('editor', function($attributeName, $value=null, $options=array()) {
-    Asset::add(Theme::asset('assets/js/plugins/ckeditor/ckeditor.js'));
+    Asset::add(moduleAsset('system', 'js/ckeditor/ckeditor.js'));
     Asset::addScript("
         CKEDITOR.config.allowedContent = true;
         var editor = CKEDITOR.replace('text', {

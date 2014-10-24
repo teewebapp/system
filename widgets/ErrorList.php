@@ -2,7 +2,7 @@
 
 namespace Tee\System\Widgets;
 
-use View, Menu;
+use View;
 use Tee\Page\Models\Page;
 use Tee\Page\Models\PageCategory;
 

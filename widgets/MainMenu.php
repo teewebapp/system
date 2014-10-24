@@ -2,9 +2,10 @@
 
 namespace Tee\System\Widgets;
 
-use View, Menu, Config;
+use View, Config;
 use Tee\Page\Models\Page;
 use Tee\Page\Models\PageCategory;
+use Tee\System\Menu;
 
 class MainMenu {
     public $menuName = 'mainMenu';
