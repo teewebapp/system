@@ -9,7 +9,7 @@
 		"yaap/theme": "1.2.*",
 		"lavary/laravel-menu": "1.5.*",
 		"creitive/breadcrumbs": "1.0.*",
-		"roumen/asset": "v2.4.*",
+		"roumen/asset": "2.4.*",
 		"pingpong/widget" : "1.0.*"
 	},
 	"autoload": {
