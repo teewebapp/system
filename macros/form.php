@@ -32,12 +32,12 @@ Form::macro('editor', function($attributeName, $value=null, $options=array()) {
     Asset::addScript("
         CKEDITOR.config.allowedContent = true;
         var editor = CKEDITOR.replace('text', {
-            filebrowserBrowseUrl : '".URL::to('/ckfinder/ckfinder.html')."',
-            filebrowserImageBrowseUrl : '".URL::to('/ckfinder/ckfinder.html?type=Images')."',
-            filebrowserFlashBrowseUrl : '".URL::to('/ckfinder/ckfinder.html?type=Flash')."',
-            filebrowserUploadUrl : '".URL::to('/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files')."',
-            filebrowserImageUploadUrl : '".URL::to('/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images')."',
-            filebrowserFlashUploadUrl : '".URL::to('/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash')."'
+            filebrowserBrowseUrl : '".URL::to(moduleAsset('system', 'ckfinder/ckfinder.html'))."',
+            filebrowserImageBrowseUrl : '".URL::to(moduleAsset('system', 'ckfinder/ckfinder.html?type=Images'))."',
+            filebrowserFlashBrowseUrl : '".URL::to(moduleAsset('system', 'ckfinder/ckfinder.html?type=Flash'))."',
+            filebrowserUploadUrl : '".URL::to(moduleAsset('system', 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files'))."',
+            filebrowserImageUploadUrl : '".URL::to(moduleAsset('system', 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images'))."',
+            filebrowserFlashUploadUrl : '".URL::to(moduleAsset('system', 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'))."'
         });
         CKFinder.setupCKEditor( editor, '../' );
     ", 'ready');
