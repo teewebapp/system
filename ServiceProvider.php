@@ -2,8 +2,6 @@
 
 namespace Tee\System;
 
-use Tee\System\Widgets\MainMenu;
-
 use App;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider {
@@ -27,11 +25,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
         class_alias('Roumen\\Asset\\Asset', 'Tee\\System\\Asset');
 
         // registra os widgets
-        Widget::register(
-            'mainMenu',
-            __NAMESPACE__.'\\Widgets\\MainMenu'
-        );
-
         Widget::register(
             'errorList',
             __NAMESPACE__.'\\Widgets\\ErrorList'
