@@ -1,6 +1,8 @@
 <?php
 
-class TestCase extends Illuminate\Foundation\Testing\TestCase {
+namespace Tee\System\Tests;
+
+class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 
 	/**
 	 * Creates the application.
@@ -13,7 +15,17 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase {
 
 		$testEnvironment = 'testing';
 
-		return require __DIR__.'/../../bootstrap/start.php';
+		$app = require __DIR__.'/bootstrap/start.php';
+
+		$vendorDir = base_path() . '/vendor';
+		if(!file_exists($vendorDir.'/teewebapp')) {
+		    mkdir($vendorDir.'/teewebapp');
+		}
+
+		$modulePath = getcwd();
+		$moduleName = basename($modulePath);
+
+		return $app;
 	}
 
 }
