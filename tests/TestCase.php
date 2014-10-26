@@ -2,8 +2,11 @@
 
 namespace Tee\System\Tests;
 
+use Creolab\LaravelModules\Module;
+
 class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 
+	public $app;
 	/**
 	 * Creates the application.
 	 *
@@ -11,12 +14,23 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 	 */
 	public function createApplication()
 	{
-		$unitTesting = true;
+		if(!$this->app)
+		{
+			$unitTesting = true;
 
-		$testEnvironment = 'testing';
+			$testEnvironment = 'testing';
 
-		$app = require __DIR__.'/bootstrap/start.php';
+			$app = require __DIR__.'/bootstrap/start.php';
 
+			$this->app = $app;
+		}
+		return $this->app;
+	}
+
+	public function setUp() {
+		parent::setUp();
+		$app = $this->createApplication();
+		
 		$vendorDir = base_path() . '/vendor';
 		if(!file_exists($vendorDir.'/teewebapp')) {
 		    mkdir($vendorDir.'/teewebapp');
@@ -25,7 +39,12 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 		$modulePath = getcwd();
 		$moduleName = basename($modulePath);
 
-		return $app;
+		$modules = $app['modules']->modules();
+
+		$module = new Module($moduleName, $modulePath, null, $app, '.');
+		$module->register();
+		$modules[$moduleName] = $module;
+		
 	}
 
 }
