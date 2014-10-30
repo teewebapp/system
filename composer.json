@@ -14,7 +14,13 @@
 	},
 	"autoload": {
 		"classmap": [
-			"."
+			"commands",
+			"controllers",
+			"migrations",
+			"models",
+			"tests",
+			"widgets",
+			"ServiceProvider.php"
 		]
 	},
 	"minimum-stability": "stable"
