@@ -13,15 +13,9 @@
 		"pingpong/widget" : "1.0.*"
 	},
 	"autoload": {
-		"classmap": [
-			"commands",
-			"controllers",
-			"migrations",
-			"models",
-			"tests",
-			"widgets",
-			"ServiceProvider.php"
-		]
+		"psr-4": {
+                    "Tee\\System": "."
+                }
 	},
 	"minimum-stability": "stable"
 }
