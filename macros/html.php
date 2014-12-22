@@ -9,6 +9,15 @@ HTML::macro('updateButton', function($label, $route) {
     return $html;
 });
 
+HTML::macro('downloadButton', function($label, $route) {
+    $html  = "<a href=\"$route\" title=\"$label\">";
+    $html .= "  <button type=\"button\" class=\"btn btn-primary btn-xs\">";
+    $html .= "    <span class=\"glyphicon glyphicon-download\"></span> $label";
+    $html .= "  </button>";
+    $html .= "</a>";
+    return $html;
+});
+
 HTML::macro('deleteButton', function($label, $route) {
     $html  = Form::open(array('url' => $route, 'method' => 'delete', 'style'=>'display:inline;', 'onsubmit'=>"confirm('Tem certeza que deseja remover?')"));
     $html .= "<a href=\"$route\" title=\"$label\">";
