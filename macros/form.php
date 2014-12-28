@@ -7,7 +7,8 @@ use Tee\System\Theme;
  * Make a label with model attribute name
  */
 Form::macro('labelModel', function($model, $attributeName) {
-    return Form::label($attributeName, attributeName($model, $attributeName));
+    $required = $model->isRequiredAttribute($attributeName);
+    return sprintf(Form::label($attributeName, '%s'), attributeName($model, $attributeName) . ($required ? ' <span style="color:red">*</span>' : ''));
 });
 
 /**

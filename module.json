@@ -1,5 +1,6 @@
 {
     "enabled": true,
     "order": 1,
+    "command": ["Tee\\System\\Commands\\NewModule"],
     "provider": ["Tee\\System\\ServiceProvider"]
 }
