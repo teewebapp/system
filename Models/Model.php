@@ -32,4 +32,13 @@ class Model extends Eloquent {
         return false;
     }
 
+    public static function getAttributeName($attribute)
+    {
+        $names = static::getAttributeNames();
+        if(array_key_exists($attribute, $names))
+            return $names[$attribute];
+        else
+            return $attribute;
+    }
+
 }

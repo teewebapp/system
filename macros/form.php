@@ -25,6 +25,38 @@ Form::macro('resource', function($model, $routePrefix, $options=array()) {
     ] + $options);
 });
 
+Form::macro('numerical', function($attributeName, $value, $options) {
+    foreach(['js/plugins/input-mask/jquery.inputmask.js', 'js/plugins/input-mask/jquery.inputmask.numeric.extensions.js'] as $file) {
+        $jsFilename = moduleAsset('admin', $file);
+        if(!in_array($jsFilename, @Asset::$js['footer'] ?: array()))
+            Asset::add($jsFilename);
+    }
+
+    $script = "$('*[data-inputmask]').inputmask();";
+    if(!in_array($script, @Asset::$scripts['footer'] ?: array()))
+        Asset::addScript($script);
+
+    $options['data-inputmask'] = "'alias': 'integer'";
+    return Form::text($attributeName, $value, $options);
+});
+
+Form::macro('decimal', function($attributeName, $value, $options) {
+    foreach(['js/plugins/input-mask/jquery.inputmask.js', 'js/plugins/input-mask/jquery.inputmask.numeric.extensions.js'] as $file) {
+        $jsFilename = moduleAsset('admin', $file);
+        if(!in_array($jsFilename, @Asset::$js['footer'] ?: array()))
+            Asset::add($jsFilename);
+    }
+    $options['data-inputmask'] = "'alias': 'decimal', 'radixPoint': ','";
+
+    $script = "$('*[data-inputmask]').inputmask();";
+    if(!in_array($script, @Asset::$scripts['footer'] ?: array()))
+        Asset::addScript($script);
+
+    $value = str_replace('.', ',', $value);
+
+    return Form::text($attributeName, $value, $options);
+});
+
 /**
  * Creates a Html Editor
  */
@@ -32,7 +64,7 @@ Form::macro('editor', function($attributeName, $value=null, $options=array()) {
     Asset::add(moduleAsset('system', 'js/ckeditor/ckeditor.js'));
     Asset::addScript("
         CKEDITOR.config.allowedContent = true;
-        var editor = CKEDITOR.replace('text', {
+        var editor = CKEDITOR.replace('$attributeName', {
             filebrowserBrowseUrl : '".URL::to(moduleAsset('system', 'ckfinder/ckfinder.html'))."',
             filebrowserImageBrowseUrl : '".URL::to(moduleAsset('system', 'ckfinder/ckfinder.html?type=Images'))."',
             filebrowserFlashBrowseUrl : '".URL::to(moduleAsset('system', 'ckfinder/ckfinder.html?type=Flash'))."',
