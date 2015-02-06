@@ -16,12 +16,19 @@ Form::macro('labelModel', function($model, $attributeName) {
  * resource
  */
 Form::macro('resource', function($model, $routePrefix, $options=array()) {
+    $routeParams = array();
+    if(is_array($routePrefix)) {
+        $aux = array_shift($routePrefix);
+        $routeParams = $routePrefix;
+        $routePrefix = $aux;
+    }
+
     return Form::model($model, [
         'route' => $model->exists ?
-            ["$routePrefix.update", $model->id] :
-            ["$routePrefix.store"],
+            ["$routePrefix.update"] + (['id'=>$model->id] + $routeParams) :
+            ["$routePrefix.store"] + $routeParams,
         'method' => $model->exists ? 'PUT' : 'POST',
-        'role'=>'form'
+        'role' => 'form'
     ] + $options);
 });
 

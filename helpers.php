@@ -31,3 +31,7 @@ function moduleEnabled($moduleName) {
 function moduleAsset($moduleName, $asset) {
     return URL::asset("packages/module/{$moduleName}/assets/{$asset}");
 }
+
+function formatCurrency($number) {
+    return 'R$ '.number_format($number, 2, ',', '');
+}

@@ -28,3 +28,12 @@ HTML::macro('deleteButton', function($label, $route) {
     $html .= Form::close();
     return $html;
 });
+
+HTML::macro('viewButton', function($label, $route) {
+    $html  = "<a href=\"$route\" title=\"$label\">";
+    $html .= "  <button type=\"button\" class=\"btn btn-primary btn-xs\">";
+    $html .= "    <span class=\"glyphicon glyphicon-eye-open\"></span> $label";
+    $html .= "  </button>";
+    $html .= "</a>";
+    return $html;
+});

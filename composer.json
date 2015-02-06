@@ -10,7 +10,9 @@
 		"lavary/laravel-menu": "1.5.*",
 		"creitive/breadcrumbs": "1.0.*",
 		"roumen/asset": "2.4.*",
-		"pingpong/widget" : "1.0.*"
+		"pingpong/widget" : "1.0.*",
+		"gchaincl/laravel-fragment-caching": "*"
+
 	},
 	"autoload": {
 		"psr-4": {
