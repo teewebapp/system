@@ -3,8 +3,9 @@
 namespace Tee\System\Controllers;
 
 
-use Controller, View, Config;
+use Controller, View, Config, URL;
 use Tee\System\Theme;
+use Tee\System\Breadcrumbs;
 
 class BaseController extends Controller {
 
@@ -13,6 +14,13 @@ class BaseController extends Controller {
 		  Theme::init(Config::get('site.theme'));
         $app = app();
         $viewFinder = $app['view.finder'];
+        Breadcrumbs::setListElement('ol');
+        Breadcrumbs::setCssClasses('breadcrumb');
+        Breadcrumbs::addCrumb('Início', URL::to('/'));
+        Breadcrumbs::setDivider('');
+
+        View::share('breadcrumbVisible', true);
+
         foreach($app['modules']->modules() as $name => $module)
         {
             if($module->enabled())

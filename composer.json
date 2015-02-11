@@ -11,8 +11,8 @@
 		"creitive/breadcrumbs": "1.0.*",
 		"roumen/asset": "2.4.*",
 		"pingpong/widget" : "1.0.*",
-		"gchaincl/laravel-fragment-caching": "*"
-
+		"gchaincl/laravel-fragment-caching": "*",
+		"andersondanilo/modelform": "*"
 	},
 	"autoload": {
 		"psr-4": {
