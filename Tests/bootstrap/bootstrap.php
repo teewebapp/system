@@ -29,6 +29,10 @@ Patchwork\Utf8\Bootup::initMbstring();
 |
 */
 
+var_dump("getcwd: ".getcwd());
+var_dump("file_exists vendor: ".file_exists('vendor'));
+var_dump("file_exists vendor/teewebapp: ".file_exists('vendor/teewebapp'));
+
 $moduleName = basename(getcwd());
 if(!file_exists("vendor/teewebapp/$moduleName"))
     symlink(getcwd(), "vendor/teewebapp/$moduleName");
