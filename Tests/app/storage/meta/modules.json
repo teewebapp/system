@@ -1,1 +1,1 @@
-{"system":{"enabled":true,"order":1,"provider":["Tee\\System\\ServiceProvider"],"name":"system","group":"vendor\/teewebapp"}}
+{"system":{"enabled":true,"order":1,"command":["Tee\\System\\Commands\\NewModule"],"provider":["Tee\\System\\ServiceProvider"],"name":"system","group":"vendor\/teewebapp"}}

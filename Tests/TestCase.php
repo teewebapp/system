@@ -21,16 +21,18 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 			$testEnvironment = 'testing';
 
 			$app = require __DIR__.'/bootstrap/start.php';
+			$app->boot();
 
 			$this->app = $app;
 		}
 		return $this->app;
 	}
 
-	public function setUp() {
+	public function setUp()
+	{
 		parent::setUp();
 		$app = $this->createApplication();
-		
+		/*
 		$vendorDir = base_path() . '/vendor';
 		if(!file_exists($vendorDir.'/teewebapp')) {
 		    mkdir($vendorDir.'/teewebapp');
@@ -38,13 +40,11 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 
 		$modulePath = getcwd();
 		$moduleName = basename($modulePath);
-
 		$modules = $app['modules']->modules();
-
 		$module = new Module($moduleName, $modulePath, null, $app, '.');
 		$module->register();
 		$modules[$moduleName] = $module;
-		
+		*/
 	}
 
 }

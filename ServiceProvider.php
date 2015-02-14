@@ -8,6 +8,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
 
     public function register()
     {
+        $this->app->singleton('tee.siteIdentifier', function() {
+            return new SiteIdentifier();
+        });
+
         // registra os macros e helpers
         require_once __DIR__.'/macros/html.php';
         require_once __DIR__.'/macros/form.php';
@@ -23,6 +27,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
         class_alias('Lavary\\Menu\\Facade', 'Tee\\System\\Menu');
         class_alias('Creitive\\Breadcrumbs\\Facades\\Breadcrumbs', 'Tee\\System\\Breadcrumbs');
         class_alias('Roumen\\Asset\\Asset', 'Tee\\System\\Asset');
+        class_alias('Tee\\System\\Facades\\SiteIdentifier', 'SiteIdentifier');
 
         // registra os widgets
         Widget::register(

@@ -35,3 +35,7 @@ function moduleAsset($moduleName, $asset) {
 function formatCurrency($number) {
     return 'R$ '.number_format($number, 2, ',', '');
 }
+
+function currentSite() {
+    return SiteIdentifier::current();
+}

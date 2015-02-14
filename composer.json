@@ -12,7 +12,8 @@
 		"roumen/asset": "2.4.*",
 		"pingpong/widget" : "1.0.*",
 		"gchaincl/laravel-fragment-caching": "*",
-		"andersondanilo/modelform": "*"
+		"andersondanilo/modelform": "*",
+		"cviebrock/eloquent-sluggable": "2.*"
 	},
 	"autoload": {
 		"psr-4": {
