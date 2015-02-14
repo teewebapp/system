@@ -4,6 +4,8 @@ namespace Tee\System\Tests;
 
 use Creolab\LaravelModules\Module;
 
+use Artisan;
+
 class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 
 	public $app;
@@ -32,6 +34,9 @@ class TestCase extends \Illuminate\Foundation\Testing\TestCase {
 	{
 		parent::setUp();
 		$app = $this->createApplication();
+
+		Artisan::call('modules:migrate');
+		Artisan::call('modules:seed');
 		/*
 		$vendorDir = base_path() . '/vendor';
 		if(!file_exists($vendorDir.'/teewebapp')) {

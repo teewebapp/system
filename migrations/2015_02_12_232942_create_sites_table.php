@@ -17,7 +17,7 @@ class CreateSitesTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->string('slug')->index();
-			$table->unsignedInteger('parent_id');
+			$table->unsignedInteger('parent_id')->nullable();
 			$table->foreign('parent_id')->references('id')->on('sites');
 			$table->timestamps();
 		});

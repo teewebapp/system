@@ -1,6 +1,7 @@
 {
     "enabled": true,
     "order": 1,
+    "seeder": "Tee\\System\\Seeds\\DatabaseSeeder",
     "command": ["Tee\\System\\Commands\\NewModule"],
     "provider": ["Tee\\System\\ServiceProvider"]
 }

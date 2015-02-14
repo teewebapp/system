@@ -7,7 +7,7 @@ class SiteIdentifierTest extends TestCase
 {
     public function testCurrent()
     {
-        //$site = currentSite();
-        //$this->assertTrue($site instanceof Site);
+        $site = currentSite();
+        $this->assertTrue($site instanceof Site);
     }
 }
