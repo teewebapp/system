@@ -29,10 +29,13 @@ Patchwork\Utf8\Bootup::initMbstring();
 |
 */
 
-$moduleName = basename(getcwd());
-if(!file_exists('vendor/teewebapp'))
-    mkdir('vendor/teewebapp');
-if(!file_exists("vendor/teewebapp/$moduleName"))
-    symlink(getcwd(), "vendor/teewebapp/$moduleName");
+if(basename(dirname(getcwd())) == 'teewebapp')
+{
+    $moduleName = basename(getcwd());
+    if(!file_exists('vendor/teewebapp'))
+        mkdir('vendor/teewebapp');
+    if(!file_exists("vendor/teewebapp/$moduleName"))
+        symlink(getcwd(), "vendor/teewebapp/$moduleName");
+}
 
 Illuminate\Support\ClassLoader::register();
