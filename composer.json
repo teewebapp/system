@@ -13,7 +13,8 @@
 		"pingpong/widget" : "1.0.*",
 		"gchaincl/laravel-fragment-caching": "*",
 		"andersondanilo/modelform": "*",
-		"cviebrock/eloquent-sluggable": "2.*"
+		"cviebrock/eloquent-sluggable": "2.*",
+		"greggilbert/recaptcha": "1.*"
 	},
 	"require-dev": {
         "league/factory-muffin": "~3.0",
