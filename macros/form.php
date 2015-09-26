@@ -83,3 +83,16 @@ Form::macro('editor', function($attributeName, $value=null, $options=array()) {
     ", 'ready');
     return Form::textArea($attributeName, $value, $options);
 });
+
+/**
+ * Validates a Recaptcha input
+ * Obs: Recapctha package already provide a "captcha" macro to form.
+ */
+Form::macro('makeCaptchaValidator', function($input) {
+    $v = Validator::make($input, [
+        'g-recaptcha-response' => 'required|recaptcha',
+    ])->setAttributeNames([
+        'g-recaptcha-response' => 'Recaptcha',
+    ]);
+    return $v;
+});

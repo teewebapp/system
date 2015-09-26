@@ -21,6 +21,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider {
         App::register('Creitive\Breadcrumbs\BreadcrumbsServiceProvider');
         App::register('Roumen\Asset\AssetServiceProvider');
         App::register('Pingpong\Widget\WidgetServiceProvider');
+        App::register('Greggilbert\Recaptcha\RecaptchaServiceProvider');
 
         class_alias('Pingpong\\Widget\\Facades\\Widget', 'Tee\\System\\Widget');
         class_alias('YAAP\\Theme\\Facades\\Theme', 'Tee\\System\\Theme');
